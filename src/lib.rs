@@ -22,12 +22,7 @@ pub fn interpret(content: String) {
         let c = chars[index];
 
         if c == '+' {
-            if cell == 255 { 
-                cell = 0;
-            }
-            else {
-                cell += 1;
-            };
+            cell = cell.wrapping_add(1);
         }
         else if c == '!' {
             print!("{}", String::from_utf8(vec!(cell)).expect("Unknown value."));
