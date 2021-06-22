@@ -7,8 +7,8 @@
 
 ```markdown
 + - increase memeory pointer value
-( - start loop 
-) - end loop
+( - start loop (only if the pointer is not 0)
+) - end loop (only if the pointer is 0)
 ! - send output
 ? - receive input
 ```
