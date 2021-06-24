@@ -1,4 +1,4 @@
-use std::{env, fs};
+use std::{env, fs, io, io::Write};
 
 pub fn parse_args(mut args: env::Args) -> Result<String, &'static  str> {
     args.next();
@@ -25,12 +25,14 @@ pub fn interpret(content: String) {
             cell = cell.wrapping_add(1);
         }
         else if c == '!' {
-            print!("{}", String::from_utf8(vec!(cell)).expect("Unknown value."));
+            let mut stdout = io::stdout();
+            stdout.write(&[cell]).unwrap();
+            stdout.flush().unwrap();
         }
         else if c == '?' {
             let mut input = String::new();
             std::io::stdin().read_line(&mut input).expect("Error reading line.");
-            cell = input.trim().as_bytes()[0]
+            cell = input.as_bytes()[0];
         }
         else if c == '(' && cell == 0 {
             let mut loop_count = 1;
