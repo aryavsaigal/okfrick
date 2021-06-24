@@ -12,7 +12,7 @@ these 5 characters are the only thing you need for wasting hours of your life co
 
 the memory pointer has a size of u8 so you get sad faster.
 
-lets begin by looking how these characters work
+lets begin by looking at how these characters work
 
 ---
 
